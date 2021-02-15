@@ -1,2 +1,2 @@
-# Kubernates
-All Docs related to Kubernates
+# Kubernetes
+All Docs related to Kubernetes
