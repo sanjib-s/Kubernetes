@@ -1,0 +1,13 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8.i0/v1
+metadata:
+  name: psp-permissive
+rules:
+  - apiGroups:
+    -extensions
+    resources:
+    - podssecuritypolicies
+    resourceNames:
+    - permissive
+    verbs:
+      - use

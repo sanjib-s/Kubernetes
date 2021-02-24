@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.i0/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+  namespace: default
+spec:
+  podselector:
+    matchlabels:
+      role: Webserver
+  policyTypes:
+    - ingress
+    - Egress
+  ingress:
+    - from:
+        -ipBlock:
+          cidr: 172.17.0.0./16
+          except:
+          - 172.17.3.0/24
+    - namespaceSelector:
+        matchLabels:
+          project: myproject
+  egress:
+    -to:
+      - ipBlock:
+         cidr : 10.0.0.0/24
+      ports:
+        - protocol: TCP
+          port: 5978

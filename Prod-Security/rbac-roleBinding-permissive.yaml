@@ -1,0 +1,19 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8.i0/v1
+metadata:
+  name: psp-permissive
+  namespace: kube-system
+subjects:
+- kind: ServiceAccount
+  name: daemon-set-Controller
+  namespace: kube-system
+- kind: ServiceAccount
+  name: replica-set-Controller
+  namespace: kube-system
+- kind: ServiceAccount
+  name: job-Controller
+  namespace: kube-system
+roleRef:
+  kind: ClusterRole
+  name: psp-permissive
+  apiGroup: rbac.authorization.k8s.io
